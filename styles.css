@@ -1,17 +1,21 @@
 :root {
   --skin: #ead3bb;
-  --hair: #2d1b6e;
-  --eye: #3a3939;
+  --skin-shadow: #c9a882;
+  --hair: #361c4f;
+  --eye-color: #1b945a;
+  --eye-bg: #f5ede0;
   --blush: #e8a0a0;
-  --shirt-dark: #1a1a1a;
+  --shirt-dark: #222222;
   --shirt-light: #c8d4c0;
-  --bg-glass: rgba(180, 210, 200, 0.3);
+  --shirt-white: #e8e8e0;
+  --collar: #222222;
+  --backpack: #8B4513;
+  --backpack-strap: #6B3410;
   --bg-plants: #5a8a4a;
   --rain-color: rgba(200, 230, 240, 0.6);
   --flower-petal: #ffffff;
   --flower-center: #f0d060;
-
-  --hue-shift: 0deg; /* para cambiar todos los colores a la vez con una sola variable */
+  --hue-shift: 0deg;
 }
 
 *, *::before, *::after {
@@ -35,11 +39,11 @@ body {
   border-radius: 8px;
   background: #87a8b0;
   display: grid;
-  grid-template-columns: 1fr 2fr; 
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
 }
 
-
+/* ===================== FONDO ===================== */
 .background {
   grid-column: 1 / -1;
   grid-row: 1;
@@ -53,7 +57,7 @@ body {
   );
 }
 
-
+/* ===================== LLUVIA ===================== */
 .rain {
   grid-column: 1 / -1;
   grid-row: 1;
@@ -87,6 +91,7 @@ body {
   );
 }
 
+/* ===================== PERSONAJE ===================== */
 .character {
   grid-column: 1 / -1;
   grid-row: 1;
@@ -98,74 +103,181 @@ body {
   position: relative;
 }
 
-.character::after {
-  content: "";
+/* --- PELO TRASERO --- */
+.hair--back {
   position: absolute;
-  top: 50px;
-  left: calc(50% - 175px);
-  width: 351px;
-  height: 351px;
-  clip-path: polygon(30% 15%, 60% 1%, 78% 24%, 77% 70%, 52% 94%, 32% 90%, 11% 75%, 4% 43%);
-  box-shadow: inset 0 0 0 2px #111;
+  top: -20px;
+  left: calc(50% - 235px);
+  width: 500px;
+  height: 500px;
+  background: var(--hair);
+  clip-path: polygon(8% 25%, 13% 10%, 23% 0%, 25% 55%, 29% 63%, 28% 69%, 27% 74%, 25% 81%, 22% 72%, 19% 80%, 17% 62%, 9% 44%);
+
 }
 
-.face {
-  margin-top: 50px;   
-  width: 350px;
-  height: 350px;
-  background: var(--skin);
-  clip-path: polygon(30% 15%, 60% 1%, 78% 24%, 77% 70%, 52% 94%, 32% 90%, 11% 75%, 4% 43%);
-  position: relative;
-  filter: drop-shadow(0px 0px 1px #000);
-}
-
-.neck {
-  position: absolute;
-  top: 48px;
-  left: calc(50% - 177px);
-  width: 355px;
-  height: 355px;
-  background: #4a4a4a;
-  clip-path: polygon(30% 15%, 60% 1%, 78% 24%, 77% 70%, 52% 94%, 32% 90%, 11% 75%, 4% 43%);
-}
-
+/* --- TORSO --- */
 .body {
   position: absolute;
-  top: 330px;
-  left: calc(50% - 180px);
-  width: 360px;
-  height: 320px;
+  top: 96px;
+  left: calc(50% - 300px);
+  width: 550px;
+  height: 550px;
   background: var(--shirt-dark);
-  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  clip-path: polygon(29% 51%, 37% 69%, 65% 72%, 85% 56%, 73% 40%, 88% 40%, 99% 48%, 98% 81%, 98% 99%, 3% 100%, 3% 71%, 16% 58%);;
 }
+
+/* --- PARTE BLANCA DE LA CAMISA --- */
+.body::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: calc(50% - 290px);
+  width: 560px;
+  height: 570px;
+  background: var(--shirt-white);
+clip-path: polygon(35% 83%, 41% 75%, 66% 78%, 66% 78%, 85% 64%, 90% 69%, 94% 79%, 94% 94%, 94% 99%, 28% 99%, 31% 94%, 28% 91%);
+
+}
+
+/* --- CUELLO DE LA CAMISA --- */
+.body::after {
+  content: "";
+  position: absolute;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--shirt-dark);
+  clip-path: /* TU CLIP PATH */;
+}
+
+/* --- MOCHILA --- */
 .backpack {
   position: absolute;
-  top: 280px;
-  left: calc(50% + 20px);
-  width: 180px;
-  height: 280px;
-  background: #513b2b;
-  border-radius: 15px 15px 10px 10px;
-  clip-path: polygon(5% 0%, 95% 0%, 100% 100%, 0% 100%);
+  top: /* TU VALOR */;
+  left: /* TU VALOR */;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--backpack);
+  clip-path: /* TU CLIP PATH */;
 }
+
+/* --- TIRANTE IZQUIERDO --- */
+.backpack::before {
+  content: "";
+  position: absolute;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--backpack-strap);
+  clip-path: /* TU CLIP PATH */;
+}
+
+/* --- TIRANTE DERECHO --- */
+.backpack::after {
+  content: "";
+  position: absolute;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--backpack-strap);
+  clip-path: /* TU CLIP PATH */;
+}
+
+/* --- CUELLO + CLAVÍCULAS --- */
+.neck {
+  position: absolute;
+  top: 25px;
+  left: calc(50% - 345px);
+  width: 600px;
+  height: 600px;
+  background: var(--skin);
+  clip-path: polygon(45% 52%, 45% 47%, 67% 55%, 62% 56%, 61% 49%, 76% 49%, 95% 63%, 77% 73%, 67% 78%, 59% 79%, 40% 76%, 33% 60%);
+
+
+}
+
+/* --- COLLAR NEGRO --- */
+.neck::before {
+  content: "";
+  position: absolute;
+  top: -67px;
+  left: calc(50% - 305px);
+  width: 600px;
+  height: 600px;
+  background: var(--collar);
+clip-path: polygon(54% 68%, 58% 70%, 63% 70%, 69% 66%, 71% 60%, 71% 68%, 65% 74%, 57% 74%, 50% 70%, 45% 64%, 46% 59%, 50% 65%);
+}
+
+/* --- BRAZO DERECHO (camisa) --- */
+.arm {
+  position: absolute;
+  top: /* TU VALOR */;
+  left: /* TU VALOR */;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--shirt-dark);
+  clip-path: /* TU CLIP PATH */;
+}
+
+/* --- BRAZO IZQUIERDO (piel) --- */
+.arm::before {
+  content: "";
+  position: absolute;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--skin);
+  clip-path: /* TU CLIP PATH */;
+}
+
+/* --- MANO --- */
+.hand {
+  position: absolute;
+  top: /* TU VALOR */;
+  left: /* TU VALOR */;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--skin);
+  clip-path: /* TU CLIP PATH */;
+}
+
+/* ===================== SOMBRA CARA ===================== */
+.face-shadow {
+  position: absolute;
+  top: -62px;
+  left: calc(50% - 379px);
+  width: 627px;
+  height: 626px;
+  background: hsl(0, 0%, 29%);
+clip-path: polygon(48% 34%, 54% 27%, 58% 20%, 71% 20%, 79% 29%, 79% 53%, 76% 59%, 64% 68%, 55% 65%, 47% 59%, 44% 53%, 42% 39%);
+
+}
+
+/* ===================== CARA ===================== */
+.face {
+  position: absolute;
+  top: -60px;
+  left: calc(50% - 375px);
+  width: 620px;
+  height: 620px;
+  background: var(--skin);
+clip-path: polygon(48% 34%, 54% 27%, 58% 20%, 71% 20%, 79% 29%, 79% 53%, 76% 59%, 64% 68%, 55% 65%, 47% 59%, 44% 53%, 42% 39%);
+
+}
+
+/* ===================== OJOS ===================== */
 .eye {
   width: 95px;
   height: 93px;
-  background: #f5ede0; 
-  position: relative;
+  background: var(--eye-bg);
+  position: absolute;
 }
 
 .eye--left {
-  position: absolute;
-  top: 32%;
-  left: 5%;
+  top: 36%;
+  left: 42%;
   clip-path: polygon(26% 17%, 48% 14%, 82% 20%, 80% 35%, 54% 38%, 27% 41%, 14% 41%, 7% 38%);
 }
 
 .eye--right {
-  position: absolute;
-  top: 25%;
-  left: 52%;
+  top: 32.5%;
+  left: 65%;
   clip-path: polygon(31% 19%, 56% 13%, 82% 26%, 69% 37%, 54% 38%, 28% 39%, 14% 41%, 5% 38%);
 }
 
@@ -174,12 +286,11 @@ body {
   position: absolute;
   width: 35px;
   height: 35px;
-  background: var(--eye); 
+  background: var(--eye-color);
   border-radius: 50%;
   top: 28%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 }
 
 .eye::after {
@@ -187,21 +298,89 @@ body {
   position: absolute;
   width: 4px;
   height: 4px;
-  background: rgb(0, 0, 0);
+  background: #000;
   border-radius: 50%;
   top: 26%;
   left: 49%;
-  z-index: 1;
 }
 
 .pupil {
   position: absolute;
   width: 31px;
   height: 31px;
-  background: #1b945a;
+  background: var(--eye-color);
   border-radius: 50%;
   top: 28%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
+.eyelid {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  background: #111;
+  border-radius: 50%;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ===================== PELO DELANTERO ===================== */
+.hair--front {
+  position: absolute;
+  top: -104px;
+  left: calc(50% - 230px);
+  width: 500px;
+  height: 500px;
+  background: var(--hair);
+clip-path: polygon(72% 24%, 72% 71%, 64% 86%, 66% 52%, 56% 38%, 54% 49%, 42% 68%, 39% 84%, 36% 71%, 38% 58%, 39% 10%, 53% 12%);
+}
+
+.hair--front2 {
+  position: absolute;
+  top: -108px;
+  left: calc(50% - 238px);
+  width: 500px;
+  height: 500px;
+  background: var(--hair);
+clip-path: polygon(12% 58%, 12% 36%, 21% 19%, 45% 9%, 40% 45%, 26% 60%, 31% 84%, 25% 86%, 23% 94%, 22% 84%, 15% 89%, 21% 78%);  
+}
+
+.hair--front3 {
+  position: absolute;
+  top: -8px;
+  left: calc(50% - 160px);
+  width: 500px;
+  height: 500px;
+  background: var(--hair);
+  clip-path: polygon(54% 46%, 58% 5%, 64% 21%, 65% 33%, 64% 46%, 63% 53%, 62% 58%, 58% 74%, 58% 62%, 54% 75%, 55% 59%, 48% 77%);  
+}
+
+/* ===================== FLOR ===================== */
+.flower {
+  position: absolute;
+  top: /* TU VALOR */;
+  left: /* TU VALOR */;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+}
+
+.petals {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--flower-petal);
+  clip-path: /* TU CLIP PATH */;
+}
+
+.flower__center {
+  position: absolute;
+  width: /* TU VALOR */;
+  height: /* TU VALOR */;
+  background: var(--flower-center);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
