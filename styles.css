@@ -15,7 +15,7 @@
   --rain-color: rgba(200, 230, 240, 0.6);
   --flower-petal: #f2f2f2;
   --flower-center: #f0d060;
-  --hue-shift: 180deg;
+  --hue-shift: 0deg;
 }
 
 /*  DARK MODE con una sola variable  */
